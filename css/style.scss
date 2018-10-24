@@ -1,0 +1,257 @@
+@import "compass";
+@import url(https://fonts.googleapis.com/css?family=Abel);
+// font-family
+$baseFontFamily :"游ゴシック",
+YuGothic,
+"メイリオ",
+Verdana,
+"Hiragino Kaku Gothic ProN",
+Meiryo,
+sans-serif;
+
+// colors　ベースになるカラー設定
+$baseColor: #171717;
+$subColor: #7F7F7F;
+$keyColor: #FFB2B2;
+$fontColor: #FFFFFF;
+
+//このサイトでの基本設定事項
+/* Base 
+------------------------------------------------------------*/
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    color: $fontColor;
+    font-size: 1.4rem;
+    font-family: $baseFontFamily;
+    line-height: 1.6;
+    letter-spacing: 0.1em;
+    background-color: $baseColor;
+}
+
+/* Align
+------------------------------------------------------------*/
+
+.text-center {
+    text-align: center;
+}
+
+
+/* Layout 
+
+------------------------------------------------------------*/
+
+/* Font
+------------------------------------------------------------*/
+
+.abel {
+    font-family: 'Abel', sans-serif;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+// desktop
+/* Header
+------------------------------------------------------------*/
+
+.button-fortop {
+    width: 20px;
+    height: 20px;
+    padding: 10px;
+    border: 2px solid $fontColor;
+    color: $fontColor;
+    text-align: center;
+    display: block;
+    float: right;
+    @include border-radius(4px);
+    font-size: 20px;
+    line-height: 0;
+    margin: 20px 20px 0 0;
+    &:visited {
+        color: $fontColor;
+    }
+}
+
+.header {
+    .aboutus {
+        width: 60%;
+        margin: 0 auto;
+        padding: 60px 0;
+        clear: both;
+    }
+    .site-title {
+        font-size: 1.8rem;
+        line-height: normal;
+
+    }
+
+
+}
+
+//ヘッダー画像も場合分けしたいスマホ
+@media (max-width: 768px) {
+    .box {
+        background-image: url("../images/header_yokonaga.jpg");
+        height: 250px;
+        width: 100%;
+        background-size: cover;
+        background-position: center center;
+    }
+}
+
+//パソコン
+@media (min-width: 769px) {
+    .box {
+        background-image: url("../images/header_yokonaga.jpg");
+        height: 500px;
+        width: 100%;
+        background-size: cover;
+        background-position: center center;
+    }
+}
+
+
+/* Header トップボタン色変更
+  ------------------------------------------------------------*/
+
+.button-fortop {
+    &:hover,
+    &:active {
+        background-color: $fontColor;
+        color: #FFB2B2;
+    }
+}
+
+/* Contents
+------------------------------------------------------------*/
+
+// Common Styles
+section {
+    padding: 60px 0;
+    .container {
+        width: 90%;
+    }
+    h2 {
+        @extend .abel;
+        font-size: 3.2rem;
+        @extend .uppercase;
+    }
+}
+
+//縦表示（スマホ用）
+// EditorsChoice
+@media (max-width: 768px) {
+    #EditorsChoice {
+        background-color: $subColor;
+        .container {
+            max-width: 100%;
+            margin: 10px;
+            padding: 10px;
+            border: solid 1px $baseColor;
+            @include display-flex;
+            justify-content: space-between;
+            @include flex-direction(column); // 縦表示okだった
+        }
+        h2 {
+            color: $baseColor;
+            margin-bottom: 60px;
+        }
+        .sellection-box {
+            @include flex(1);
+            max-width: 100%;
+            margin: 10px;
+            padding: 10px;
+            border: solid 1px $baseColor;
+            margin: 10px 0; // 上下余白
+            padding: 20px;
+            background-color: $baseColor;
+            @include border-radius(4px);
+            @include box-sizing(border-box);
+        }
+        h3 {
+
+            color: $keyColor;
+            margin-bottom: 10px;
+            font-size: 2.4rem;
+            font-weight: bold;
+        }
+    }
+}
+
+
+//横表示（PC用）
+// EditorsChoice
+@media (min-width: 769px) {
+    #EditorsChoice {
+        background-color: $subColor;
+        .container {
+            max-width: 100%;
+            margin: 10px;
+            padding: 10px;
+            border: solid 1px $baseColor;
+            @include display-flex;
+            flex-direction: row; // スキルボックスを横に並べる
+            justify-content: space-between;
+        }
+        h2 {
+            color: $baseColor;
+            margin-bottom: 60px;
+        }
+        .sellection-box {
+            @include flex(1);
+            max-width: 100%;
+            margin: 10px;
+            padding: 10px;
+            border: solid 1px $baseColor;
+            margin: 0 10px; // 横並びだから左右に余白
+            padding: 20px;
+            background-color: $baseColor;
+            @include border-radius(4px);
+            @include box-sizing(border-box);
+        }
+        h3 {
+
+            color: $keyColor;
+            margin-bottom: 10px;
+            font-size: 2.4rem;
+            font-weight: bold;
+        }
+    }
+}
+
+// Button角丸ボタンをつけるなぜお前は消えるんだ
+#button {
+    h2 {
+        color: $fontColor;
+        margin-bottom: 60px;
+    }
+    .marubutton {
+        width: 150px;
+        font-size: 24px;
+        color: #FFFFFF;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        padding: 10px 0 10px;
+        background: #7F7F7F;
+        border-radius: 20px;
+    }
+}
+
+
+
+
+/* Footer
+------------------------------------------------------------*/
+
+footer {
+    background-color: $subColor;
+    padding: 10px 0;
+    text-align: center;
+    color: #FFF;
+}
